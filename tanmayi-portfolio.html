@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanmayi's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #111111;
+            color: white;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 20px 40px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav-button {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            font-size: 0.9em;
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background: radial-gradient(circle at center, #1a1a1a 0%, #111111 100%);
+            position: relative;
+            z-index: 1;
+        }
+
+        .greeting {
+            font-size: 3.5em;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 20px;
+            background: linear-gradient(
+                45deg,
+                #ff69b4,
+                #9370db,
+                #40e0d0,
+                #ff69b4
+            );
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 8s ease infinite;
+        }
+
+        .welcome-text {
+            font-size: 1.5em;
+            text-align: center;
+            max-width: 800px;
+            background: linear-gradient(
+                45deg,
+                #40e0d0,
+                #9370db,
+                #ff69b4,
+                #40e0d0
+            );
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: gradient 8s ease infinite;
+            animation-delay: 0.5s;
+        }
+
+        /* Silver Waves */
+        .wave {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            background: linear-gradient(45deg, #silver, #white);
+            z-index: 0;
+        }
+
+        .wave1 {
+            background: linear-gradient(45deg, #c0c0c0, #ffffff);
+            clip-path: path('M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z');
+            animation: wave 20s linear infinite;
+        }
+
+        .wave2 {
+            background: linear-gradient(-45deg, #a8a8a8, #e0e0e0);
+            clip-path: path('M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z');
+            animation: wave 15s linear infinite;
+            opacity: 0.08;
+        }
+
+        .wave3 {
+            background: linear-gradient(60deg, #d3d3d3, #f5f5f5);
+            clip-path: path('M0,100 C150,200 350,0 500,100 L500,00 L0,0 Z');
+            animation: wave 25s linear infinite;
+            opacity: 0.05;
+        }
+
+        @keyframes wave {
+            0% {
+                transform: translateX(-50%) translateY(0) scale(1);
+            }
+            50% {
+                transform: translateX(0%) translateY(20px) scale(1.2);
+            }
+            100% {
+                transform: translateX(-50%) translateY(0) scale(1);
+            }
+        }
+
+        @keyframes gradient {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Metallic Effect */
+        .metallic-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255,255,255,0.01) 0%,
+                rgba(255,255,255,0.02) 2%
+            );
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-content {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .greeting {
+                font-size: 2.5em;
+            }
+
+            .welcome-text {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#about" class="nav-button">About Me</a>
+            <a href="#contact" class="nav-button">Contact Address</a>
+            <a href="https://linkedin.com/" target="_blank" class="nav-button">LinkedIn Profile</a>
+        </div>
+    </nav>
+
+    <main class="main-content">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <h1 class="greeting">Hey there, this is Tanmayi!</h1>
+        <p class="welcome-text">Welcome to my personal portfolio website</p>
+    </main>
+
+    <div class="metallic-overlay"></div>
+</body>
+</html>
